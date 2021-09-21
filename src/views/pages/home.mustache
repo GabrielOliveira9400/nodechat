@@ -1,0 +1,28 @@
+{{>partials/header}}
+
+        {{#showOld}}
+        Tudo bem {{user.name}}??<br>
+        Você tem {{user.age}} anos.
+        {{/showOld}}
+
+        <!--Cria else para caso não atenda o caso do # -->
+        {{^showOld}}
+            É cara, não sabemos sua idade
+        {{/showOld}}
+        <h2>Produtos</h2>
+        <ul>
+        {{#products}}
+        {{>partials/productitem}}
+        {{/products}}
+        </ul>
+        <ul>
+            {{#frasedodia}}
+                <!-- Pega todos conteudos da lista -->
+                <li>{{.}}</li>
+            {{/frasedodia}}
+            {{^frasedodia}}
+                Não há frase motivacionais hoje, Press F
+            {{/frasedodia}}
+        </ul>
+
+{{>partials/footer}}

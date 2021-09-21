@@ -3,8 +3,16 @@ import express, {Request,Response} from "express";
 import mainRouter from './routes/index';
 import painelRouter from './routes/painel';
 import path from 'path';
+import mustache from "mustache-express";
+
+
+
 const server = express();
 
+server.set('view engine', 'mustache');
+//Seta onde estao os arquivos html
+server.set('views',path.join(__dirname, 'views'));
+server.engine('mustache',mustache());
 //Deixa os arquivos da pasta public serem acessados --- dirname serve para pegar o diretorio raiz
 server.use(express.static(path.join(__dirname, '../public')));
 //Requer as rotas principais
