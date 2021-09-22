@@ -41,5 +41,14 @@ router.get('/contat', (req:Request, res:Response)=>{
 router.get('/sobre', (req:Request, res:Response)=>{
     res.render('pages/sobre');
 });
+router.get('/form', (req:Request, res:Response)=>{
+    res.render('pages/form')
+});
+router.post('/form-receb', (req:Request, res:Response)=>{
+    let name: string  = req.body.name as string;
+    res.render('pages/form',{
+        name
+    });
+});
 
 export default router;
